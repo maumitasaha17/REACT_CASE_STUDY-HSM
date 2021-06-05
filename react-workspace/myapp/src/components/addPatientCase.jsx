@@ -20,7 +20,7 @@ class AddPatientCase extends Component{
         event.preventDefault();
         console.log("Submitted");
         PatientCaseService.addPatientCase(this.state.patientCase).then((res)=>{
-            this.props.history.push("/patients");
+            this.props.history.push("/patientCase");
 
         });
     };

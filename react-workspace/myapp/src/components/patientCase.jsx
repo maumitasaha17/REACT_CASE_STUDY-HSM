@@ -38,9 +38,9 @@ class PatientCase extends Component {
          PatientCaseService.deletePatientCase(Id);
      };
 
-     getPatientCase = () => {
+     viewPatientCase = () => {
          let patientCases = [];
-         PatientCaseService.getPatientCase(this.state.search).then((res) => {
+         PatientCaseService.getPatientCaseById(this.state.search).then((res) => {
              console.log("**data:" , res.data);
              patientCases = res.data;
          });
@@ -74,7 +74,7 @@ class PatientCase extends Component {
         return (
           <div className="w-75 mt-5 mx-auto">
             <div className="d-flex justify-content-between">
-              <Link to="/patients/add" className="btn btn-secondary btn-large mb-1">
+              <Link to="/patientCase/add" className="btn btn-secondary btn-large mb-1">
                 Add
               </Link>
               <form class="form-inline my-2 my-lg-0">
@@ -122,7 +122,7 @@ class PatientCase extends Component {
                   </th>
                   
     
-                  <th colSpan="7">Action</th>
+                  <th colSpan="2">Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -137,7 +137,7 @@ class PatientCase extends Component {
                     <td>{patientCase.patientId}</td>
 
                     <td>
-                      <Link to={`/patients/update/${patientCase.patientCaseId}`}>
+                      <Link to={`/patientCase/update/${patientCase.patientCaseId}`}>
                         <button className="btn btn-secondary">Update</button>
                       </Link>
                       <button

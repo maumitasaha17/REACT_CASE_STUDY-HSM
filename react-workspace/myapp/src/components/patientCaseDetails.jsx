@@ -34,7 +34,7 @@ class PatientCaseDetails extends Component{
             this.props.match.params.id,
             this.state.patientCase
             ).then((res)=>{
-            this.props.history.push("/patients");
+            this.props.history.push("/patientCase");
         });
     };
     render(){
@@ -152,7 +152,7 @@ class PatientCaseDetails extends Component{
                   <button
                     className="btn btn-secondary mr-2 float-right"
                     onClick={()=>{
-                        this.props.history.push("/patients");
+                        this.props.history.push("/patientCase");
                     }}
                   >
                     Cancel
