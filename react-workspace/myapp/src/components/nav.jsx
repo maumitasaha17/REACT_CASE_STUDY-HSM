@@ -41,7 +41,12 @@ const Nav = () => {
                 <NavLink className="nav-link" to="/patientCase">
                   Patient Case
                 </NavLink>
-                </li>
+              </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/finance">
+                  Finance
+                </NavLink>
+              </li>
               <ul className="navbar-nav ml-auto">
                 <li className="nav-item">
                   <NavLink className="nav-link" to="/register">
