@@ -18,6 +18,9 @@ import FinanceDetails from "./components/financeDetails";
 import Patients from "./components/patients";
 import AddPatient from "./components/addPatient";
 import PatientDetails from "./components/patientDetails";
+import Diseases from "./components/diseases";
+import AddDisease from "./components/addDisease";
+import DiseaseDetails from "./components/diseaseDetails";
 
 function App() {
   return (
@@ -52,6 +55,10 @@ function App() {
           <Route path="/patients/get/:id" component={PatientDetails} />
           <Route path="/patients/update/:id" component={PatientDetails} />
           <Route path="/patients" component={Patients} />
+          <Route path="/diseases/add" component={AddDisease} />
+          <Route path="/diseases/get/:id" component={DiseaseDetails} />
+          <Route path="/diseases/update/:id" component={DiseaseDetails} />
+          <Route path="/diseases" component={Diseases} />
           <Route path="/" exact component={Home} />
           <Route component={PageNotFound} />
           <Redirect from="/home" to="/" />

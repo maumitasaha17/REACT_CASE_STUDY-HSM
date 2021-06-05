@@ -52,6 +52,11 @@ const Nav = () => {
                   Patient
                 </NavLink>
               </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/diseases">
+                  Disease
+                </NavLink>
+              </li>
               <ul className="navbar-nav ml-auto">
                 <li className="nav-item">
                   <NavLink className="nav-link" to="/register">
