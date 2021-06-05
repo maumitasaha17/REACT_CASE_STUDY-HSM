@@ -15,6 +15,9 @@ import PatientCaseDetails from "./components/patientCaseDetails";
 import Finance from "./components/finance";
 import AddFinance from "./components/addFinance";
 import FinanceDetails from "./components/financeDetails";
+import Patients from "./components/patients";
+import AddPatient from "./components/addPatient";
+import PatientDetails from "./components/patientDetails";
 
 function App() {
   return (
@@ -22,11 +25,11 @@ function App() {
       <Nav />
       <div className="container-fluid">
         <Switch>
+          <Route path="/" exact component={Home} />
           <Route path="/diet/add" component={AddDiet} />
           <Route path="/diet/update/:id" component={DietDetails} />
           <Route path="/diet/view/:id" component={DietDetails} />
           <Route path="/diet" component={Diet} />
-          <Route path="/" exact component={Home} />
           <Route exact path="/doctor/add" component={AddDoctor} />
           <Route exact path="/doctor/get/:id" component={DoctorDetails} />
           <Route exact path="/doctor/update" component={DoctorDetails} />
@@ -45,6 +48,10 @@ function App() {
             component={FinanceDetails}
           />
           <Route path="/finance" component={Finance} />
+          <Route path="/patients/add" component={AddPatient} />
+          <Route path="/patients/get/:id" component={PatientDetails} />
+          <Route path="/patients/update/:id" component={PatientDetails} />
+          <Route path="/patients" component={Patients} />
           <Route path="/" exact component={Home} />
           <Route component={PageNotFound} />
           <Redirect from="/home" to="/" />
