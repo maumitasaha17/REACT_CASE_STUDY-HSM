@@ -7,7 +7,7 @@ const Nav = () => {
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">
           <NavLink className="navbar-brand" to="/">
-            Diet
+            Hsm
           </NavLink>
           <button
             className="navbar-toggler"
@@ -30,6 +30,11 @@ const Nav = () => {
               <li className="nav-item">
                 <NavLink className="nav-link" to="/diet">
                   Diet
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/doctors">
+                  Doctor
                 </NavLink>
               </li>
               <ul className="navbar-nav ml-auto">

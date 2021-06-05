@@ -8,6 +8,10 @@ import Home from "./components/home";
 import AddDiet from "./components/addDiet";
 import PageNotFound from "./components/pageNotFound";
 import DietDetails from "./components/dietdetails";
+import Doctors from './components/doctors';
+import AddDoctor from './components/addDoctor';
+import DoctorDetails from './components/doctorDetails';
+
 
 function App() {
   return (
@@ -22,7 +26,10 @@ function App() {
           <Route path="/" exact component={Home} />
           <Redirect from="/home" to="/"
           />
-    
+          <Route exact path="/doctor/add" component={AddDoctor}/>
+          <Route exact path="/doctor/get/:id" component={DoctorDetails}/>
+          <Route exact path="/doctor/update" component={DoctorDetails}/>
+          <Route exact path="/doctors" component={Doctors}/>
           <Route component={PageNotFound} />
           </Switch>
       </div>
