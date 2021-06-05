@@ -24,6 +24,9 @@ import DiseaseDetails from "./components/diseaseDetails";
 import Policies from "./components/policies";
 import AddPolicy from "./components/addPolicy";
 import PolicyDetails from "./components/policyDetails";
+import PatientHistory from './components/patientHistory';
+import CreatePatientHistory from './components/createPatientHistory';
+import HistoryDetails from './components/historyDetails';
 
 function App() {
   return (
@@ -66,6 +69,10 @@ function App() {
           <Route path="/policies/get/:id" component={PolicyDetails} />
           <Route path="/policies/update/:id" component={PolicyDetails} />
           <Route path="/policies" component={Policies} />
+          <Route path="/history/add" component={CreatePatientHistory} />
+          <Route path="/history/get/:id" component={HistoryDetails} />
+           <Route path="/history/:id" component={HistoryDetails} />
+           <Route path="/history" component={PatientHistory} />
           <Route path="/" exact component={Home} />
           <Route component={PageNotFound} />
           <Redirect from="/home" to="/" />

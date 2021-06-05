@@ -62,6 +62,11 @@ const Nav = () => {
                   Insurance Policy
                 </NavLink>
               </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/history">
+                  Patient History
+                </NavLink>
+              </li>
               <ul className="navbar-nav ml-auto">
                 <li className="nav-item">
                   <NavLink className="nav-link" to="/register">
