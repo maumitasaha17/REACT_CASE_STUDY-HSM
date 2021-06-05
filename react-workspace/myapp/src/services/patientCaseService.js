@@ -1,10 +1,10 @@
 import axios from "axios"
-const PATIENTCASE_API_BASE_URL = "http://localhost:8081/patients";
+const PATIENTCASE_API_BASE_URL = "http://localhost:8081/patientCase";
 class PatientCaseService{
     async showAllPatientCase(){
  
  //return await axios.get(PATIENTCASE_API_BASE_URL + "/all");           
- return await axios.get(PATIENTCASE_API_BASE_URL+ "/all");       
+ return await axios.get(PATIENTCASE_API_BASE_URL);       
     }
 
     async addPatientCase(patientCase){
