@@ -10,7 +10,6 @@ class PatientCase extends Component {
         sortColumn:{path:"title",order:"asc"},
         search: "",
         patientCase: {
-            patientCaseId: "",
             medicines: "",
             associateDoctorName: "",
             medicineFee: "",
@@ -29,13 +28,13 @@ class PatientCase extends Component {
         console.log("patientCases: ", this.state.patientCases);
     }
 
-     deletePatientCase = (Id) => {
-         console.log("Delete patientCase with id:" +Id);
+     deletePatientCase = (patientCaseId) => {
+         console.log("Delete patientCase with id:" +patientCaseId);
          const patientCases = this.state.patientCases.filter(
-            (patientCase) => patientCase.patientCaseId !== Id
+            (patientCase) => patientCase.patientCaseId !== patientCaseId
          );
          this.setState({ patientCases });
-         PatientCaseService.deletePatientCase(Id);
+         PatientCaseService.deletePatientCase(patientCaseId);
      };
 
      viewPatientCase = () => {
@@ -122,7 +121,7 @@ class PatientCase extends Component {
                   </th>
                   
     
-                  <th colSpan="2">Action</th>
+                  <th colSpan="3">Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -137,7 +136,7 @@ class PatientCase extends Component {
                     <td>{patientCase.patientId}</td>
 
                     <td>
-                      <Link to={`/patientCase/update/${patientCase.patientCaseId}`}>
+                      <Link to={`/patientCase/updatePatientCase/${patientCase.patientCaseId}`}>
                         <button className="btn btn-secondary">Update</button>
                       </Link>
                       <button

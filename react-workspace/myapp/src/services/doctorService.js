@@ -4,23 +4,23 @@ const LOCAL_HOST_URL = "http://localhost:8087/doctors";
 
 class DoctorService{
     async getAllDoctors(){
-        return await axios.get(LOCAL_HOST_URL+"/alldoctors");
+        return await axios.get(LOCAL_HOST_URL);
     }
 
     async createDoctor(doctor){
         return await axios.post(LOCAL_HOST_URL,doctor);
     } 
 
-    async getDoctorById(id){
-        return await axios.get(LOCAL_HOST_URL+"/"+id);
+    async getDoctorById(doctorId){
+        return await axios.get(LOCAL_HOST_URL+"/"+doctorId);
     }
 
-    async updateDoctor(){
-        return await axios.put(LOCAL_HOST_URL);
+    async updateDoctor(doctorId,doctor){
+        return await axios.put(LOCAL_HOST_URL + "/" +doctorId,doctor);
     }
     
-    async deleteDoctor(id){
-        return await axios.delete(LOCAL_HOST_URL+"/"+id);
+    async deleteDoctor(doctorId){
+        return await axios.delete(LOCAL_HOST_URL+"/"+doctorId);
     }
 }
 export default new DoctorService();

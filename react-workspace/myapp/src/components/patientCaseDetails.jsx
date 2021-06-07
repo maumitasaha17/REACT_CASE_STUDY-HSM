@@ -4,7 +4,7 @@ import PatientCaseService from "../services/patientCaseService";
 class PatientCaseDetails extends Component{
     state = {
         patientCase: {
-            patientCaseId: "",
+            
             medicines: "",
             associateDoctorName: "",
             medicineFee: "",
@@ -15,7 +15,7 @@ class PatientCaseDetails extends Component{
         },
      };
     componentDidMount(){
-        PatientCaseService.getPatientCaseById(this.props.match.params.id).then((res)=>
+        PatientCaseService.getPatientCaseById(this.props.match.params.patientCaseId).then((res)=>
          this.setState({ patientCase:res.data })
         ); 
     } 
@@ -31,7 +31,7 @@ class PatientCaseDetails extends Component{
         event.preventDefault();
         console.log(this.state.patientCase);
         PatientCaseService.updatePatientCase(
-            this.props.match.params.id,
+            this.props.match.params.patientCaseId,
             this.state.patientCase
             ).then((res)=>{
             this.props.history.push("/patientCase");
@@ -41,22 +41,10 @@ class PatientCaseDetails extends Component{
         return(
             <div>
               <form onSubmit={this.handleSubmit} className="w-75 mx-auto">
-                  <h1>{this.props.match.params.id}</h1>
+                  <h1>{this.props.match.params.patientCaseId}</h1>
+                  
                   <div className="mb-3">
-                      <label htmlFor="patcaseId" className="form-label">
-                          patientCase Id
-                      </label>
-                      <input
-                        type="text"
-                        className="form-control"
-                        id="patientCaseId"
-                        name="patientCaseId"
-                        value={this.state.patientCase.patientCaseId}
-                        onChange={this.handleChange}
-                      />  
-                  </div>
-                  <div className="mb-3">
-                      <label htmlFor="med" className="form-label">
+                      <label htmlFor="medicines" className="form-label">
                           Medicines
                       </label>
                       <input
@@ -69,7 +57,7 @@ class PatientCaseDetails extends Component{
                       />  
                   </div>
                   <div className="mb-3">
-                      <label htmlFor="DoctorName" className="form-label">
+                      <label htmlFor="associateDoctorName" className="form-label">
                           associate DoctorName
                       </label>
                       <input
@@ -82,7 +70,7 @@ class PatientCaseDetails extends Component{
                       />  
                   </div>
                   <div className="mb-3">
-                      <label htmlFor="medFee" className="form-label">
+                      <label htmlFor="medicineFee" className="form-label">
                       medicine Fee
                       </label>
                       <input
@@ -95,7 +83,7 @@ class PatientCaseDetails extends Component{
                       />  
                   </div>
                   <div className="mb-3">
-                      <label htmlFor="Date" className="form-label">
+                      <label htmlFor="appointmentDate" className="form-label">
                       appointment Date
                       </label>
                       <input
@@ -108,7 +96,7 @@ class PatientCaseDetails extends Component{
                       />  
                   </div>
                   <div className="mb-3">
-                      <label htmlFor="diseaseDes" className="form-label">
+                      <label htmlFor="diseaseDescription" className="form-label">
                       disease Description
                       </label>
                       <input
@@ -121,7 +109,7 @@ class PatientCaseDetails extends Component{
                       />  
                   </div>
                   <div className="mb-3">
-                      <label htmlFor="Treatment" className="form-label">
+                      <label htmlFor="currentTreatment" className="form-label">
                       current Treatment
                       </label>
                       <input
@@ -134,7 +122,7 @@ class PatientCaseDetails extends Component{
                       />  
                   </div>
                   <div className="mb-3">
-                      <label htmlFor="patId" className="form-label">
+                      <label htmlFor="patientId" className="form-label">
                       patient Id
                       </label>
                       <input
