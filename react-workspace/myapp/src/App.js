@@ -39,16 +39,13 @@ function App() {
           <Route path="/diet/update/:id" component={DietDetails} />
           <Route path="/diet/view/:id" component={DietDetails} />
           <Route path="/diet" component={Diet} />
-          <Route exact path="/doctor/add" component={AddDoctor} />
-          <Route exact path="/doctor/get/:id" component={DoctorDetails} />
-          <Route exact path="/doctor/update" component={DoctorDetails} />
-          <Route exact path="/doctors" component={Doctors} />
+          <Route exact path="/doctors/addDoctor" component={AddDoctor}/>
+          <Route exact path="/doctors/get/:doctorId" component={DoctorDetails}/>
+          <Route exact path="/doctors/updateDoctor/:doctorId" component={DoctorDetails}/>
+          <Route exact path="/doctors" component={Doctors}/>
           <Route path="/patientCase/add" component={AddPatientCase} />
-          <Route path="/patientCase/view/:id" component={PatientCaseDetails} />
-          <Route
-            path="/patientCase/update/:id"
-            component={PatientCaseDetails}
-          />
+          <Route path="/patientCase/view/:patientCaseId" component={PatientCaseDetails} />
+          <Route path="/patientCase/updatePatientCase/:patientCaseId" component={PatientCaseDetails} />
           <Route path="/patientCase" component={PatientCase} />
           <Route path="/finance/addFinance" component={AddFinance} />
           <Route path="/finance/get/:financeId" component={FinanceDetails} />

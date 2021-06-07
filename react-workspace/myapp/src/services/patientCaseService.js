@@ -1,5 +1,5 @@
 import axios from "axios"
-const PATIENTCASE_API_BASE_URL = "http://localhost:8081/patientCase";
+const PATIENTCASE_API_BASE_URL = "http://localhost:8087/patientCase";
 class PatientCaseService{
     async showAllPatientCase(){
  
@@ -17,7 +17,7 @@ class PatientCaseService{
     }
 
     async updatePatientCase(patientCaseId,patientCase){
-    return await axios.put(PATIENTCASE_API_BASE_URL + "/"+patientCaseId,patientCase);
+    return await axios.put(PATIENTCASE_API_BASE_URL + "/" +patientCaseId, patientCase);
     }
 
      async deletePatientCase(patientCaseId){
@@ -28,4 +28,4 @@ class PatientCaseService{
 
 
 }
-export default new PatientCaseService();
+export default new PatientCaseService()
