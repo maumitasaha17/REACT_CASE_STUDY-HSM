@@ -95,20 +95,20 @@ class Patients extends Component {
         </div>
 
         <h2 className="text-center">Patients List</h2>
-        <table className="table mt-3">
+        <table className="table mt-3 shadow">
           <thead className="table-dark">
             <tr>
               <th onClick={() => this.handleSort("patientName")}>Name</th>
               <th onClick={() => this.handleSort("patientAge")}>Age</th>
               <th onClick={() => this.handleSort("registrationFee")}>
-                RegistrationFee
+                Registration Fee
               </th>
               <th onClick={() => this.handleSort("patientcontactNumber")}>
-                PatientContactNumber
+                Patient Contact Number
               </th>
               <th onClick={() => this.handleSort("symptoms")}> Symptoms</th>
-              <th onClick={() => this.handleSort("createdAt")}> CreatedAt</th>
-              <th onClick={() => this.handleSort("updatedAt")}> UpdatedAt</th>
+              <th onClick={() => this.handleSort("createdAt")}> Created At</th>
+              <th onClick={() => this.handleSort("updatedAt")}> Updated At</th>
               <th colSpan="3">Action</th>
             </tr>
           </thead>

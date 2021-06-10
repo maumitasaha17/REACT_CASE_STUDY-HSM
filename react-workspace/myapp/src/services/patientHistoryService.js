@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const HISTORY_API_BASE_URL = "http://localhost:8080/history";
+const HISTORY_API_BASE_URL = "http://localhost:8087/history";
 
 class PatientHistoryService {
     async getAllPatientHistory(){

@@ -98,7 +98,7 @@ class Finance extends Component {
           </h3>
         </div>
 
-        <table className="table mt-3">
+        <table className="table mt-3 shadow">
           <thead className="table-dark">
             <tr>
               <th onClick={() => this.handleSort("patientName")}>

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const FINANCE_API_BASE_URL = "http://localhost:8081/finance";
+const FINANCE_API_BASE_URL = "http://localhost:8087/finance";
 class FinanceService {
   async findAllFinanceDetails() {
     return await axios.get(FINANCE_API_BASE_URL);

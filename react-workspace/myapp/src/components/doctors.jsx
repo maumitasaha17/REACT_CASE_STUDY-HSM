@@ -95,22 +95,23 @@ class Doctors extends Component {
           </h3>
         </div>
 
-        <table className="table mt-3">
+        <table className="table mt-3 shadow">
           <thead className="table-dark">
             <tr>
               <th onClick={() => this.handleSort("doctorName")}>
                 Doctor Name
               </th>
               <th onClick={() => this.handleSort("contactNumber")}>
-              contact Number
+              Contact Number
               </th>
-              <th onClick={() => this.handleSort("hoursOfAvailability")}> Hours Of Availability</th>
+              <th onClick={() => this.handleSort("hoursOfAvailability")}>Availability(hrs)</th>
               <th onClick={() => this.handleSort("specialization")}>
-              specialization
+              Specialization
               </th>
               <th onClick={() => this.handleSort("degree")}>Degree</th>
-              <th onClick={() => this.handleSort("yearsOfExperience")}>years Of Experience</th>
+              <th onClick={() => this.handleSort("yearsOfExperience")}>Experience(yrs)</th>
               <th onClick={() => this.handleSort("doctorFee")}>Doctor Fee</th>
+                
               <th colSpan="3">Action</th>
             </tr>
           </thead>
@@ -126,11 +127,11 @@ class Doctors extends Component {
                 <td>{doctor.doctorFee}</td>
                 <td>
                   <Link to={`/doctors/updateDoctor/${doctor.doctorId}`}>
-                    <button className="btn btn-secondary ml-2">Update</button>
+                    <button className="btn btn-secondary ml-0">Update</button>
                   </Link>
 
                   <button
-                    className="btn btn-danger ml-1"
+                    className="btn btn-danger ml-0 mt-1"
                     onClick={() => this.deleteDoctor(doctor.doctorId)}
                   >
                     Delete

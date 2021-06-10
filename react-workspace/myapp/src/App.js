@@ -27,6 +27,14 @@ import PolicyDetails from "./components/policyDetails";
 import PatientHistory from './components/patientHistory';
 import CreatePatientHistory from './components/createPatientHistory';
 import HistoryDetails from './components/historyDetails';
+import Login from './components/login';
+import Register from './components/register';
+import createUser from './components/createUser';
+import ListAllUsers from './components/listAllUsers';
+import UpdateUser from './components/updateUser';
+import ViewUser from './components/viewUser';
+import Logout from './components/logout';
+import "./App.css";
 
 function App() {
   return (
@@ -70,9 +78,16 @@ function App() {
           <Route path="/history/get/:id" component={HistoryDetails} />
            <Route path="/history/:id" component={HistoryDetails} />
            <Route path="/history" component={PatientHistory} />
+           <Route path="/login" component={Login} />
+           <Route path="/register" component={Register} />
+           <Route path= "/users" exact component = {ListAllUsers}></Route>
+            <Route path= "/create-user" exact component = {createUser}></Route>
+            <Route path= "/update-user/:userid" exact component = {UpdateUser}></Route>
+            <Route path= "/view-user/:userid" exact component = {ViewUser}></Route>
+            <Route path="/logout" component={Logout} />
           <Route path="/" exact component={Home} />
-          <Route component={PageNotFound} />
           <Redirect from="/home" to="/" />
+          <Route component={PageNotFound} />
         </Switch>
       </div>
     </div>

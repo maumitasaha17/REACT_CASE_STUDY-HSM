@@ -4,10 +4,10 @@ import { NavLink } from "react-router-dom";
 const Nav = () => {
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-info">
         <div className="container-fluid">
           <NavLink className="navbar-brand" to="/">
-            Hsm
+            HSM
           </NavLink>
           <button
             className="navbar-toggler"
@@ -63,22 +63,29 @@ const Nav = () => {
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" to="/history">
+                <NavLink className="nav-link " to="/history">
                   Patient History
                 </NavLink>
               </li>
-              <ul className="navbar-nav ml-auto">
+              <div class="navbar-collapse collapse w-800 order-3 dual-collapse2">
+              <ul className="navbar-nav mr-5">
                 <li className="nav-item">
-                  <NavLink className="nav-link" to="/register">
-                    Register
+                  <NavLink className="nav-link btn btn-outline-dark" to="/register">
+                    Sign up
                   </NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink className="nav-link" to="/login">
+                  <NavLink className="nav-link btn btn-outline-dark" to="/login">
                     Login
                   </NavLink>
                 </li>
+                <li className="nav-item margin-left:200px">
+                  <NavLink className="nav-link btn btn-outline-dark" to="/logout">
+                    Logout
+                  </NavLink>
+                </li>
               </ul>
+              </div>
             </ul>
           </div>
         </div>
