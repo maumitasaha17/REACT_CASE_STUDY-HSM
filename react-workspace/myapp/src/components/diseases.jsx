@@ -84,13 +84,18 @@ class Diseases extends Component {
             
           </form>
         </div>
+        <div>
+          <h3 className="text-center" style={{ fontFamily: "sans-serif" }}>
+            Disease List
+          </h3>
+        </div>
 
-        <table className="table mt-3">
+        <table className="table mt-3 shadow">
           <thead className="table-dark">
             <tr>
-              <th onClick={() => this.handleSort("diseaseId")}>Id</th>
-              <th onClick={() => this.handleSort("diseaseName")}>Name</th>
-              <th onClick={() => this.handleSort("diseaseType")}>Type</th>
+              <th onClick={() => this.handleSort("diseaseId")}>Disease ID</th>
+              <th onClick={() => this.handleSort("diseaseName")}>Disease Name</th>
+              <th onClick={() => this.handleSort("diseaseType")}>Disease Type</th>
               <th onClick={() => this.handleSort("diseaseSymptoms")}>Symptoms</th>
               <th colSpan="2">Action</th>
             </tr>

@@ -87,14 +87,14 @@ class Policies extends Component {
         </div>
 
         <h2 className="text-center">Policy List</h2>
-        <table className="table mt-3">
+        <table className="table mt-3 shadow">
           <thead className="table-dark">
             <tr>
-              <th onClick={() => this.handleSort("policyName")}>PolicyName</th>
-              <th onClick={() => this.handleSort("createDate")}>CreateDate</th>
-              <th onClick={() => this.handleSort("endDate")}>EndDate</th>
+              <th onClick={() => this.handleSort("policyName")}>Policy Name</th>
+              <th onClick={() => this.handleSort("createDate")}>Create Date</th>
+              <th onClick={() => this.handleSort("endDate")}>End Date</th>
               <th onClick={() => this.handleSort("maximumAmount")}>
-                MaximumAmount
+                Maximum Amount
               </th>
               <th colSpan="2">Action</th>
             </tr>

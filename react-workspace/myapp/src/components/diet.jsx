@@ -1,5 +1,3 @@
-
-
 import React, { Component } from "react";
 import DietService from "../services/dietService";
 import { Link } from "react-router-dom";
@@ -91,8 +89,13 @@ diets: [],
             </button>
           </form>
         </div>
+        <div>
+          <h3 className="text-center" style={{ fontFamily: "sans-serif" }}>
+            Diet List
+          </h3>
+        </div>
 
-        <table className="table mt-3">
+        <table className="table mt-3 shadow">
           <thead className="table-dark">
             <tr>
               <th onClick={() => this.handleSort("dietType")}>

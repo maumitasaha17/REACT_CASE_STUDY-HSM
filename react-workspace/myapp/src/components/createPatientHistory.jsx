@@ -5,6 +5,10 @@ class CreatePatientHistory extends Component {
   state = {
     history: {
       patientHistoryId: "",
+      patientId: "",
+      patientName: "",
+      DietType: "",
+      diseaseName: "",
       recordedDate: "",
     },
   };
@@ -38,7 +42,54 @@ class CreatePatientHistory extends Component {
               value={this.state.history.patientHistoryId}
               onChange={this.handleChange}/>
           </div>
-
+          <div className="mb-3">
+            <label htmlFor="patientId" className="form-label">
+            Patient ID
+            </label>
+            <input
+              type="text"
+              className="form-control"
+              id="patientId"
+              name="patientId"
+              value={this.state.history.patientId}
+              onChange={this.handleChange}/>
+          </div>
+          <div className="mb-3">
+            <label htmlFor="patientName" className="form-label">
+            Patient Name
+            </label>
+            <input
+              type="text"
+              className="form-control"
+              id="patientName"
+              name="patientName"
+              value={this.state.history.patientName}
+              onChange={this.handleChange}/>
+          </div>
+          <div className="mb-3">
+            <label htmlFor="diseaseName" className="form-label">
+            Disease Name
+            </label>
+            <input
+              type="text"
+              className="form-control"
+              id="diseaseName"
+              name="diseaseName"
+              value={this.state.history.diseaseName}
+              onChange={this.handleChange}/>
+          </div>
+          <div className="mb-3">
+            <label htmlFor="dietType" className="form-label">
+            Diet type
+            </label>
+            <input
+              type="text"
+              className="form-control"
+              id="dietType"
+              name="dietType"
+              value={this.state.history.dietType}
+              onChange={this.handleChange}/>
+          </div>
           <div className="mb-3">
             <label htmlFor="recordedDate" className="form-label">
               Recorded Date
@@ -53,8 +104,6 @@ class CreatePatientHistory extends Component {
               autoFocus
             />
           </div>
-          
-
           <button type="submit" className="btn btn-primary">
             Submit
           </button>

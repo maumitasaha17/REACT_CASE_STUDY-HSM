@@ -93,31 +93,36 @@ class PatientCase extends Component {
                 </button>
               </form>
             </div>
+            <div>
+          <h3 className="text-center" style={{ fontFamily: "sans-serif" }}>
+            PatientCase List
+          </h3>
+        </div>
     
-            <table className="table mt-3">
+            <table className="table mt-3 shadow">
               <thead className="table-dark">
                 <tr>
                   <th onClick={() => this.handleSort("medicines")}>
-                    medicines
+                    Medicines
                   </th>
                 
                   <th onClick={() => this.handleSort("associateDoctorName")}>
-                    associateDoctorName
+                    Associate Doctor Name
                   </th>
                   <th onClick={() => this.handleSort("medicineFee")}>
-                  medicineFee
+                  Medicine Fee
                   </th>
                   <th onClick={() => this.handleSort("appointmentDate")}>
-                    appointmentDate
+                    Appointment Date
                   </th>
                   <th onClick={() => this.handleSort("diseaseDescription")}>
-                    diseaseDescription
+                    Disease Description
                   </th>
                   <th onClick={() => this.handleSort("currentTreatment")}>
-                    currentTreatment
+                    Current Treatment
                   </th>
                   <th onClick={() => this.handleSort("patientId")}>
-                    patientId
+                    Patient ID
                   </th>
                   
     
@@ -140,7 +145,7 @@ class PatientCase extends Component {
                         <button className="btn btn-secondary">Update</button>
                       </Link>
                       <button
-                        className="btn btn-danger ml-2"
+                        className="btn btn-danger mt-1"
                         onClick={() => this.deletePatientCase(patientCase.patientCaseId)}
                       >
                         Delete
