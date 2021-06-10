@@ -73,21 +73,21 @@ class Doctors extends Component {
         <div className="d-flex justify-content-between">
           <Link to="/doctors/addDoctor" className="btn btn-secondary btn-large mb-1">Add</Link>
           <form class="form-inline my-2 my-lg-0">
-            <input
-              className="form-control ml-auto"
-              type="search"
-              placeholder="Search by Id"
-              aria-label="Search"
-              onChange={this.onChange}
-            />
-            <button
-              className="btn btn-outline-success my-2 my-sm-0"
-              type="button"
-              onClick={this.viewDoctor}
-            >
-              Search
-            </button>
-          </form>
+                <input
+                  className="form-control ml-auto"
+                  type="search"
+                  placeholder="Search by Id"
+                  aria-label="Search"
+                  onChange={this.onChange}
+                />
+                <button
+                  className="btn btn-outline-success my-2 my-sm-0"
+                  type="button"
+                  onClick={this.viewDoctor}
+                >
+                  Search
+                </button>
+              </form>
         </div>
         <div>
           <h3 className="text-center" style={{ fontFamily: "sans-serif" }}>
@@ -102,7 +102,7 @@ class Doctors extends Component {
                 Doctor Name
               </th>
               <th onClick={() => this.handleSort("contactNumber")}>
-              Contact Number
+              Contact No
               </th>
               <th onClick={() => this.handleSort("hoursOfAvailability")}>Availability(hrs)</th>
               <th onClick={() => this.handleSort("specialization")}>

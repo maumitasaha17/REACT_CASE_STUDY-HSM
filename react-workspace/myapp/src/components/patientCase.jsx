@@ -95,7 +95,7 @@ class PatientCase extends Component {
             </div>
             <div>
           <h3 className="text-center" style={{ fontFamily: "sans-serif" }}>
-            PatientCase List
+            Patient Case List
           </h3>
         </div>
     
@@ -107,22 +107,22 @@ class PatientCase extends Component {
                   </th>
                 
                   <th onClick={() => this.handleSort("associateDoctorName")}>
-                    Associate Doctor Name
+                    Ass. Doctor Name
                   </th>
                   <th onClick={() => this.handleSort("medicineFee")}>
                   Medicine Fee
                   </th>
                   <th onClick={() => this.handleSort("appointmentDate")}>
-                    Appointment Date
+                    Appointment
                   </th>
                   <th onClick={() => this.handleSort("diseaseDescription")}>
-                    Disease Description
+                    Disease
                   </th>
                   <th onClick={() => this.handleSort("currentTreatment")}>
-                    Current Treatment
+                    Treatment
                   </th>
                   <th onClick={() => this.handleSort("patientId")}>
-                    Patient ID
+                    PatientID
                   </th>
                   
     
@@ -142,10 +142,10 @@ class PatientCase extends Component {
 
                     <td>
                       <Link to={`/patientCase/updatePatientCase/${patientCase.patientCaseId}`}>
-                        <button className="btn btn-secondary">Update</button>
+                        <button className="btn btn-secondary ml-1">Update</button>
                       </Link>
                       <button
-                        className="btn btn-danger mt-1"
+                        className="btn btn-danger ml-1 mt-1"
                         onClick={() => this.deletePatientCase(patientCase.patientCaseId)}
                       >
                         Delete
