@@ -99,17 +99,17 @@ diets: [],
           <thead className="table-dark">
             <tr>
               <th onClick={() => this.handleSort("dietType")}>
-                DietType
+                Diet Type
               </th>
             
               <th onClick={() => this.handleSort("foodtoEat")}>
-                DietfoodtoEat
+                Diet Food
               </th>
               <th onClick={() => this.handleSort("dietDuration")}>
-                DietDuration
+                Diet Duration
             </th>
 
-              <th colSpan="3">Action</th>
+              <th colSpan="2">Action</th>
             </tr>
           </thead>
           <tbody>

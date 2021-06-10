@@ -3,7 +3,6 @@ import { NavLink } from "react-router-dom";
 
 const Nav = () => {
   return (
-    <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-info">
         <div className="container-fluid">
           <NavLink className="navbar-brand" to="/">
@@ -67,30 +66,25 @@ const Nav = () => {
                   Patient History
                 </NavLink>
               </li>
+          </ul>
+          </div>
+        </div>
               <div class="navbar-collapse collapse w-800 order-3 dual-collapse2">
-              <ul className="navbar-nav mr-5">
+              <ul className="navbar-nav mr-1">
                 <li className="nav-item">
-                  <NavLink className="nav-link btn btn-outline-dark" to="/register">
-                    Sign up
-                  </NavLink>
-                </li>
-                <li className="nav-item">
-                  <NavLink className="nav-link btn btn-outline-dark" to="/login">
+                  <NavLink className="nav-link btn" to="/login">
                     Login
                   </NavLink>
                 </li>
-                <li className="nav-item margin-left:200px">
-                  <NavLink className="nav-link btn btn-outline-dark" to="/logout">
+                <br></br>
+                <li className="nav-item margin-left:2px">
+                  <NavLink className="nav-link btn " to="/logout">
                     Logout
                   </NavLink>
                 </li>
-              </ul>
+                </ul>
               </div>
-            </ul>
-          </div>
-        </div>
       </nav>
-    </div>
   );
 };
 
