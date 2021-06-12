@@ -34,7 +34,7 @@ class Diseases extends Component {
 
   viewDisease = () => {
     let diseases = [];
-    DiseaseService.getDiseaseById(this.state.search).then((res) => {
+    DiseaseService.findByDiseaseName(this.state.search).then((res) => {
       console.log("**data: ", res.data);
       //this.setState({ disease: res.data });
       diseases = res.data;
@@ -57,7 +57,7 @@ class Diseases extends Component {
     const { search, sortColumn, diseases } = this.state;
     var sorted = [];
     if (search) {
-      sorted = diseases.filter((disease) => disease.diseaseId == search);
+      sorted = diseases.filter((disease) => disease.diseaseName == search);
     } else {
       sorted = _.orderBy(
         this.state.diseases,
@@ -77,25 +77,19 @@ class Diseases extends Component {
             <input
               className="form-control ml-auto"
               type="search"
-              placeholder="Search by Id"
+              placeholder="Search by Name"
               aria-label="Search"
               onChange={this.onChange}
             />
             
           </form>
         </div>
-        <div>
-          <h3 className="text-center" style={{ fontFamily: "sans-serif" }}>
-            Disease List
-          </h3>
-        </div>
-
-        <table className="table mt-3 shadow">
+        <h2 className="text-center">Disease List</h2>
+        <table className="table mt-3">
           <thead className="table-dark">
             <tr>
-              <th onClick={() => this.handleSort("diseaseId")}>Disease ID</th>
-              <th onClick={() => this.handleSort("diseaseName")}>Disease Name</th>
-              <th onClick={() => this.handleSort("diseaseType")}>Disease Type</th>
+              <th onClick={() => this.handleSort("diseaseName")}>Name</th>
+              <th onClick={() => this.handleSort("diseaseType")}>Type</th>
               <th onClick={() => this.handleSort("diseaseSymptoms")}>Symptoms</th>
               <th colSpan="2">Action</th>
             </tr>
@@ -103,7 +97,6 @@ class Diseases extends Component {
           <tbody>
             {sorted.map((disease) => (
               <tr key={disease.diseaseId}>
-                <td>{disease.diseaseId}</td>
                 <td>{disease.diseaseName}</td>
                 <td>{disease.diseaseType}</td>
                 <td>{disease.diseaseSymptoms}</td>

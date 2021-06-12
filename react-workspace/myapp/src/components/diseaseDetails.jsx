@@ -4,6 +4,7 @@ import DiseaseService from "../services/diseaseService";
 class DiseaseDetails extends Component {
   state = {
     disease: {
+        diseaseId: "",
         diseaseName: "",
         diseaseType: "",
         diseaseSymptoms: "",

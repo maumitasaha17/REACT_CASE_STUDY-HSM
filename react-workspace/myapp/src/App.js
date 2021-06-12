@@ -35,6 +35,7 @@ import UpdateUser from './components/updateUser';
 import ViewUser from './components/viewUser';
 import Logout from './components/logout';
 import "./App.css";
+import Admin from './components/admin';
 
 function App() {
   return (
@@ -57,10 +58,7 @@ function App() {
           <Route path="/patientCase" component={PatientCase} />
           <Route path="/finance/addFinance" component={AddFinance} />
           <Route path="/finance/get/:financeId" component={FinanceDetails} />
-          <Route
-            path="/finance/updateFinance/:financeId"
-            component={FinanceDetails}
-          />
+          <Route path="/finance/updateFinance/:financeId" component={FinanceDetails}/>
           <Route path="/finance" component={Finance} />
           <Route path="/patients/add" component={AddPatient} />
           <Route path="/patients/get/:id" component={PatientDetails} />
@@ -76,16 +74,16 @@ function App() {
           <Route path="/policies" component={Policies} />
           <Route path="/history/add" component={CreatePatientHistory} />
           <Route path="/history/get/:id" component={HistoryDetails} />
-           <Route path="/history/:id" component={HistoryDetails} />
-           <Route path="/history" component={PatientHistory} />
-           <Route path="/login" component={Login} />
-           <Route path="/register" component={Register} />
-           <Route path= "/users" exact component = {ListAllUsers}></Route>
-            <Route path= "/create-user" exact component = {createUser}></Route>
-            <Route path= "/update-user/:userid" exact component = {UpdateUser}></Route>
-            <Route path= "/view-user/:userid" exact component = {ViewUser}></Route>
-            <Route path="/logout" component={Logout} />
-          <Route path="/" exact component={Home} />
+          <Route path="/history/:id" component={HistoryDetails} />
+          <Route path="/history" component={PatientHistory} />
+          <Route path="/login" component={Login} />
+          <Route path="/register" component={Register} />
+          <Route path= "/users" exact component = {ListAllUsers}></Route>
+          <Route path= "/create-user" exact component = {createUser}></Route>
+          <Route path= "/update-user/:userid" exact component = {UpdateUser}></Route>
+          <Route path= "/view-user/:userid" exact component = {ViewUser}></Route>
+          <Route path="/logout" component={Logout} />
+          <Route path="/admin" component={Admin} />
           <Redirect from="/home" to="/" />
           <Route component={PageNotFound} />
         </Switch>

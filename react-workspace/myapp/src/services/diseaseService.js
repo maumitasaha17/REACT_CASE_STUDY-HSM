@@ -13,8 +13,11 @@ class DiseaseService {
     return await axios.post(DISEASE_API_BASE_URL+"/disease",disease);
   }
 
+  async findByDiseaseName(diseaseName) {
+    return await axios.get(DISEASE_API_BASE_URL + "/disease/" + diseaseName);
+  }
   async getDiseaseById(diseaseId) {
-    return await axios.get(DISEASE_API_BASE_URL + "/disease/" + diseaseId);
+    return await axios.get(DISEASE_API_BASE_URL + "/disease/id/" + diseaseId);
   }
 
   async updateDisease(disease) {
