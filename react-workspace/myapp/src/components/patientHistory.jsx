@@ -35,9 +35,8 @@ class PatientHistory extends Component {
     
       viewPatientHistory = () => {
         let patient_history = [];
-        PatientHistoryService.findByPatientHistoryId(this.state.search).then((res) => {
+        PatientHistoryService.findByRecordedDate(this.state.search).then((res) => {
           console.log("**data: ", res.data);
-          //this.setState({ student: res.data });
           patient_history = res.data;
         });
         this.setState({ patient_history });
@@ -55,11 +54,11 @@ class PatientHistory extends Component {
       };
     
       render() {
-       
+      
         const { search, sortColumn, patient_history } = this.state;
         var sorted = [];
         if (search) {
-          sorted = patient_history.filter((history) => history.patientHistoryId == search);
+          sorted = patient_history.filter((history) => history.recordedDate == search);
         } 
         else {
           sorted = _.orderBy(
@@ -80,23 +79,30 @@ class PatientHistory extends Component {
               <form class="form-inline my-2 my-lg-0">
                 <input
                   className="form-control ml-auto"
-                  type="search"
-                  placeholder="Search by Id"
+                  type="date"
+                  placeholder="Search by Date"
                   aria-label="Search"
                   onChange={this.onChange}
                 />
+                {/* <button
+              className="btn btn-outline-success my-2 my-sm-0"
+              type="button"
+              onClick={this.viewPatient}>
+              Search
+            </button> */}
                 
               </form>
             </div>
     
+            <h2 className="text-center">Patient History List</h2>
             <table className="table mt-3">
               <thead className="table-dark">
                 <tr>
                   <th onClick={() => this.handleSort("patientHistoryId")}>Patient History Id</th>
-                  <th onClick={() => this.handleSort("recordedDate")}>Recorded Date</th>
                   <th onClick={() => this.handleSort("patientId")}>Patient Name</th>
-                  <th onClick={() => this.handleSort("desId")}>Disease Name</th>
+                  <th onClick={() => this.handleSort("diseaseId")}>Disease Name</th>
                   <th onClick={() => this.handleSort("dietId")}>Diet Type</th>
+                  <th onClick={() => this.handleSort("recordedDate")}>Recorded Date</th>
                   <th colSpan="2">Action</th>
                 </tr>
               </thead>
@@ -104,10 +110,10 @@ class PatientHistory extends Component {
                 { sorted.map((history) => (
                  <tr key={history.patientHistoryId}>
                  <td>{history.patientHistoryId}</td>
-                 <td>{history.recordedDate}</td>
                  <td>{history.patient.patientName}</td>
                  <td>{history.disease.diseaseName}</td>
                  <td>{history.diet.dietType}</td>
+                 <td>{history.recordedDate}</td>
                  <td>
                    <Link to={`/history/${history.patientHistoryId}`}>
                      <button className="btn btn-secondary">Update</button>
@@ -120,7 +126,6 @@ class PatientHistory extends Component {
                    </button>
                  </td>
                </tr>
-                   
                 ))}
               </tbody>
             </table>

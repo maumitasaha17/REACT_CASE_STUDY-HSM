@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import {NavLink} from "react-router-dom";
 
 class Home extends Component {
   state = {};
@@ -142,6 +143,17 @@ class Home extends Component {
            </div>
          </div>
        <hr class="featurette-divider"></hr>
+
+       <div class="container">
+          <p class="float-end">
+            <NavLink className="nav-link" to="/">
+              Back to top
+            </NavLink>
+          </p>
+          <p>
+            © 2021 HSM <NavLink to="#">Privacy Terms</NavLink>
+          </p>
+        </div>
      </div>
     );
   }

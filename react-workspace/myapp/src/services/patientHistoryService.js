@@ -4,7 +4,7 @@ const HISTORY_API_BASE_URL = "http://localhost:8087/history";
 
 class PatientHistoryService {
     async getAllPatientHistory(){
-        return await axios.get(HISTORY_API_BASE_URL + "/all");
+        return await axios.get(HISTORY_API_BASE_URL);
     }
 
     async addPatientHistory(patientHistory) {
@@ -13,6 +13,10 @@ class PatientHistoryService {
     
       async findByPatientHistoryId(patientHistoryId) {
         return await axios.get(HISTORY_API_BASE_URL + "/" + patientHistoryId);
+      }
+
+      async findByRecordedDate(recordedDate) {
+        return await axios.get(HISTORY_API_BASE_URL + "/date/" + recordedDate);
       }
     
       async updatePatientHistory(patientHistoryId, patientHistory) {

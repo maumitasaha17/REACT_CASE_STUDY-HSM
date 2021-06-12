@@ -1,31 +1,109 @@
 import React, { Component } from "react";
 import PatientHistoryService from "../services/patientHistoryService";
+import PatientService from "../services/patientService";
+import DietService from "../services/dietService";
+import DiseaseService from "../services/diseaseService";
 
 class CreatePatientHistory extends Component {
   state = {
+    patient_history:[],
+    patients:[],
+    diets:[],
+    diseases:[],
+    ids:{
+    patientHistoryId: "",
+    recordedDate: "",
+    patientId:"",
+    diseaseId:"",
+    dietId:"",
+    },
     history: {
       patientHistoryId: "",
-      patientId: "",
-      patientName: "",
-      DietType: "",
-      diseaseName: "",
       recordedDate: "",
+      patient:{},
+      disease:{},
+      diet:{},
     },
-  };
+  }
+
+  componentDidMount(){
+    PatientService.getAllPatients().then((res) => {
+    console.log("data: ", res.data);
+    this.setState({ patients: res.data });
+  });
+  console.log("patients: ", this.state.patients);
+
+
+  DietService.showAllDiet().then((res) => 
+    {
+      console.log("data: ", res.data);
+      this.setState({diets: res.data });
+    });
+    console.log("diets: ", this.state.diets);
+
+    DiseaseService.getAllDiseases().then((res) => {
+      console.log("data: ", res.data);
+      this.setState({ diseases: res.data});
+    });
+    console.log("diseases: ", this.state.diseases);
+}
+
   handleSubmit = (event) => {
     event.preventDefault();
     console.log("Submitted");
-    PatientHistoryService.addPatientHistory(this.state.history).then((res) => {
+  
+    PatientService.getPatientById(this.state.ids.patientId).then((res) =>{
+      console.log("data: ", res.data);
+      const history={...this.state.history,patient:res.data};
+      this.setState({ history});
+    });
+
+    DiseaseService.getDiseaseById(this.state.ids.diseaseId).then((res) =>{
+      console.log("data: ", res.data);
+      const history={...this.state.history,disease:res.data};
+      this.setState({ history});
+    });
+
+  DietService.viewDiet(this.state.ids.dietId).then((res) => {
+    console.log("data: ", res.data);
+    const history={...this.state.history,diet:res.data};
+
+    history.patientHistoryId=this.state.ids.patientHistoryId;
+    history.recordedDate=this.state.ids.recordedDate;
+    console.log(history);
+
+    PatientHistoryService.addPatientHistory(history).then((res) => {
       this.props.history.push("/history");
+
+    });
     });
   };
+
   handleChange = (event) => {
-    const history = { ...this.state.history };
+    const ids = { ...this.state.ids };
     // dynamically handling event changes
-    history[event.currentTarget.name] = event.currentTarget.value;
-    this.setState({ history });
+    console.log(event.currentTarget.name,event.currentTarget.value);
+    ids[event.currentTarget.name] = event.currentTarget.value;
+    this.setState({ids});
+
   };
   render() {
+    let patients=this.state.patients;
+    let diseases=this.state.diseases;
+    let diets=this.state.diets;
+
+    let optionItemsPatient=patients.map((patient) =>
+    <option value={patient.patientId}>{patient.patientName}</option>
+    );
+
+    let optionItemsDisease=diseases.map((disease) =>
+    <option value={disease.diseaseId}>{disease.diseaseName}</option>
+    );
+
+    let optionItemsDiet=diets.map((diet) =>
+    <option value={diet.dietId}>{diet.dietType}</option>
+    );
+
     return (
       <div className="w-50 mx-auto">
         <form onSubmit={this.handleSubmit}>
@@ -39,57 +117,10 @@ class CreatePatientHistory extends Component {
               className="form-control"
               id="patientHistoryId"
               name="patientHistoryId"
-              value={this.state.history.patientHistoryId}
+              value={this.state.ids.patientHistoryId}
               onChange={this.handleChange}/>
           </div>
-          <div className="mb-3">
-            <label htmlFor="patientId" className="form-label">
-            Patient ID
-            </label>
-            <input
-              type="text"
-              className="form-control"
-              id="patientId"
-              name="patientId"
-              value={this.state.history.patientId}
-              onChange={this.handleChange}/>
-          </div>
-          <div className="mb-3">
-            <label htmlFor="patientName" className="form-label">
-            Patient Name
-            </label>
-            <input
-              type="text"
-              className="form-control"
-              id="patientName"
-              name="patientName"
-              value={this.state.history.patientName}
-              onChange={this.handleChange}/>
-          </div>
-          <div className="mb-3">
-            <label htmlFor="diseaseName" className="form-label">
-            Disease Name
-            </label>
-            <input
-              type="text"
-              className="form-control"
-              id="diseaseName"
-              name="diseaseName"
-              value={this.state.history.diseaseName}
-              onChange={this.handleChange}/>
-          </div>
-          <div className="mb-3">
-            <label htmlFor="dietType" className="form-label">
-            Diet type
-            </label>
-            <input
-              type="text"
-              className="form-control"
-              id="dietType"
-              name="dietType"
-              value={this.state.history.dietType}
-              onChange={this.handleChange}/>
-          </div>
+
           <div className="mb-3">
             <label htmlFor="recordedDate" className="form-label">
               Recorded Date
@@ -99,12 +130,46 @@ class CreatePatientHistory extends Component {
               className="form-control"
               id="recordedDate"
               name="recordedDate"
-              value={this.state.history.recordedDate}
+              value={this.state.ids.recordedDate}
               onChange={this.handleChange}
               autoFocus
             />
           </div>
-          <button type="submit" className="btn btn-primary">
+
+           <div className="mb-3">
+            <label htmlFor="patientId" className="form-label">
+              Patient Name
+            </label>
+            <select id="patientId" name="patientId" className="form-control" onChange={this.handleChange}>
+             <option value="">Select</option>
+              {optionItemsPatient}
+            </select>
+          </div>
+
+          <div className="mb-3">
+            <label htmlFor="diseaseId" className="form-label">
+              Disease Name
+            </label>
+            <select id="diseaseId" name="diseaseId" className="form-control" onChange={this.handleChange} >
+            <option value="">Select</option>
+              {optionItemsDisease}
+
+            </select>
+          </div>
+
+          <div className="mb-3">
+            <label htmlFor="dietId" className="form-label">
+              Diet Type 
+            </label>
+            <select id="dietId" name="dietId" className="form-control" onChange={this.handleChange} >
+            <option value="">Select</option>
+              {optionItemsDiet}
+
+            </select>
+          </div>
+          
+
+          <button type="submit" className="btn btn-primary" >
             Submit
           </button>
         </form>
