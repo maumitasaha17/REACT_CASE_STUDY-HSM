@@ -26,46 +26,6 @@ const Nav = () => {
                 Home
               </NavLink>
             </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/diet">
-                Diet
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/doctors">
-                Doctor
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/patientCase">
-                Patient Case
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/finance">
-                Finance
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" exact to="/patients">
-                Patient
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/diseases">
-                Disease
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/policies">
-                Insurance Policy
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link " to="/history">
-                Patient History
-              </NavLink>
-            </li>
           </ul>
         </div>
         <div className="dropdown">
@@ -82,7 +42,7 @@ const Nav = () => {
           </NavLink>
 
           <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            <NavLink className="dropdown-item" to="/admin">
+            <NavLink className="dropdown-item" to="/adminhome">
               Admin login
             </NavLink>
             <NavLink className="dropdown-item" to="/login">
