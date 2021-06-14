@@ -1,5 +1,10 @@
 .App {
-  align-content: center;
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -17,8 +22,6 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-  overflow-x: hidden;
-  overflow-y: auto;
 }
 
 .App-link {
@@ -33,48 +36,12 @@
     transform: rotate(360deg);
   }
 }
-.container-fluid {
-  padding-left: 100px;
-}
-.container {
-  display: grid;
-  padding-left: 100px;
-  grid-template-columns: 80% 1fr;
-  grid-template-rows: 72px 1fr;
-}
-@media screen and (max-width: 375px) {
-  .grid-container {
-    grid-template-columns: 1fr;
-    grid-template-rows: 72px 1fr;
-    grid-template-areas:
-      "head"
-      "main";
-  }
-}
-
-.grid-header {
-  grid-area: auto;
-}
-.sidebar1 {
-  grid-area: head;
-  box-shadow: 0 1px 0 0 #eaedf3;
-}
-
-.content {
-  grid-area: main;
-}
 #header {
   position: absolute;
   width: 220px;
-  max-height: max-content;
-  display: flex;
-  flex-direction: column;
-  align-items: left;
-  height: 100vh;
 }
 #header .pro-sidebar {
-  height: 230vh;
-  padding-right: 20px;
+  height: 100vh;
 }
 #header .closemenu {
   color: #000;
@@ -96,13 +63,6 @@
   width: 80px;
   min-width: 80px;
 }
-.container-fluid {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  list-style: none;
-  width: 100%;
-}
 #header .pro-sidebar-inner {
   background-color: white;
   box-shadow: 0.5px 0.866px 2px 0px rgba(0, 0, 0, 0.15);
@@ -120,7 +80,7 @@
   padding: 0 5px;
 }
 #header .pro-sidebar-inner .pro-sidebar-layout ul .pro-inner-item {
-  color: rgb(0, 0, 0);
+  color: #000;
   margin: 10px 0px;
   font-weight: bold;
 }
@@ -130,7 +90,7 @@
   ul
   .pro-inner-item
   .pro-icon-wrapper {
-  background-color: #80DEEA;
+  background-color: #9fa8da;
   color: #000;
   border-radius: 3px;
 }
@@ -144,14 +104,12 @@
   color: #000;
 }
 #header .pro-sidebar-inner .pro-sidebar-layout .active {
-  background-image: linear-gradient(0deg, #006064 0%, #26C6DA 100%);
+  background-image: linear-gradient(0deg, #1a237e 0%, #3949ab 100%);
 }
 #header .logo {
   padding: 10px;
 }
-MenuItem {
-  font-size: 1rem;
-}
+
 @media only screen and (max-width: 720px) {
   html {
     overflow: hidden;
