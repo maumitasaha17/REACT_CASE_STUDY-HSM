@@ -2,8 +2,7 @@ import React from "react";
 import Adminsidebar from "./adminsidebar";
 import Content from "./content";
 
-const AdminHome = () =>{
-
+const AdminHome = () => {
   return (
     <div>
       <div className="row container-fluid">
@@ -16,6 +15,6 @@ const AdminHome = () =>{
       </div>
     </div>
   );
-}
+};
 
 export default AdminHome;

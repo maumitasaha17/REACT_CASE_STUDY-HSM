@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import FinanceService from "../services/financeService";
 
 class FinanceDetails extends Component {
+  //Creation of finance object
   state = {
     finance: {
       patientName: "",
@@ -11,6 +12,7 @@ class FinanceDetails extends Component {
       totalFee: "",
     },
   };
+  //Calling response for findByFinanceId
   componentDidMount() {
     FinanceService.findByFinanceId(this.props.match.params.financeId).then(
       (res) => this.setState({ finance: res.data })
@@ -23,7 +25,7 @@ class FinanceDetails extends Component {
     finance[event.currentTarget.name] = event.currentTarget.value;
     this.setState({ finance });
   };
-
+  //Handling the submission and pushing the code to database
   handleSubmit = (event) => {
     event.preventDefault();
     console.log(this.state.finance);
@@ -35,6 +37,7 @@ class FinanceDetails extends Component {
     });
   };
 
+  //Creation of form for update finance
   render() {
     return (
       <div>

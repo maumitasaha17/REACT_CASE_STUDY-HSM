@@ -54,40 +54,42 @@ const Adminsidebar = () => {
             {menuCollapse ? <FiArrowRightCircle /> : <FiArrowLeftCircle />}
           </div>
         </SidebarHeader>
+        <br></br>
+        <br></br>
         <SidebarContent>
           <Menu iconShape="square" maxMenuHeight={250}>
             <MenuItem active={true} icon={<FiHome />}>
-              <Link to="/home"></Link>
+              <Link to="/adminhome"></Link>
               Dashboard
             </MenuItem>
             <SubMenu title="Doctor" icon={<FaBriefcaseMedical />}>
-            <Link to="/doctors">
-              <MenuItem>Doctor List </MenuItem>
-            </Link>
+              <Link to="/doctors">
+                <MenuItem>Doctor List </MenuItem>
+              </Link>
             </SubMenu>
             <SubMenu title="Patient" icon={<BiAccessibility />}>
-            <Link to="/patients">
-              <MenuItem>Patient List</MenuItem>
+              <Link to="/patients">
+                <MenuItem>Patient List</MenuItem>
               </Link>
             </SubMenu>
             <SubMenu title="Patient History" icon={<FaList />}>
-            <Link to="/history">
-              <MenuItem>Patient History List</MenuItem>
+              <Link to="/history">
+                <MenuItem>Patient History List</MenuItem>
               </Link>
             </SubMenu>
             <SubMenu title="Patient Case" icon={<GiMedicalThermometer />}>
-            <Link to="/patientCase">
-              <MenuItem>Patient Case List</MenuItem>
+              <Link to="/patientCase">
+                <MenuItem>Patient Case List</MenuItem>
               </Link>
             </SubMenu>
             <SubMenu title="Diet" icon={<DiEnvato />}>
-            <Link to="/diet"> 
-              <MenuItem>Diet List</MenuItem>
+              <Link to="/diet">
+                <MenuItem>Diet List</MenuItem>
               </Link>
             </SubMenu>
             <SubMenu title="Disease" icon={<FaCapsules />}>
-            <Link to="/diseases">
-              <MenuItem>Disease List</MenuItem>
+              <Link to="/diseases">
+                <MenuItem>Disease List</MenuItem>
               </Link>
             </SubMenu>
             <SubMenu title="Insurance Policy" icon={<FaPoll />}>
@@ -96,8 +98,8 @@ const Adminsidebar = () => {
               </Link>
             </SubMenu>
             <SubMenu title="Finance" icon={<FaChartPie />}>
-            <Link to="/finance">
-              <MenuItem>Finance List</MenuItem>
+              <Link to="/finance">
+                <MenuItem>Finance List</MenuItem>
               </Link>
             </SubMenu>
             <MenuItem icon={<FiLogOut />}>

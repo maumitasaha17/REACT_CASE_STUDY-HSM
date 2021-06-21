@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import FinanceService from "../services/financeService";
 
+//Creation of finance object
 class AddFinance extends Component {
   state = {
     finance: {
@@ -11,7 +12,7 @@ class AddFinance extends Component {
       totalFee: "",
     },
   };
-
+  //Handling the submission and pushing the code to database
   handleSubmit = (event) => {
     event.preventDefault();
     console.log("Submitted");
@@ -19,11 +20,14 @@ class AddFinance extends Component {
       this.props.history.push("/finance");
     });
   };
+  //Handling the changes of the finance form
   handleChange = (event) => {
     const finance = { ...this.state.finance };
+    // dynamically handling event changes
     finance[event.currentTarget.name] = event.currentTarget.value;
     this.setState({ finance });
   };
+  //Creation of form for add patient
   render() {
     return (
       <div className="w-50 mx-auto">

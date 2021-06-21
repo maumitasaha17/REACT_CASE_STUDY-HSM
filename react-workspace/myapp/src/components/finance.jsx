@@ -5,6 +5,7 @@ import _ from "lodash";
 
 class Finance extends Component {
   state = {
+    //Creation of finance list
     finances: [],
     sortColumn: { path: "title", order: "asc" },
     search: "",
@@ -17,6 +18,7 @@ class Finance extends Component {
       totalFee: "",
     },
   };
+  //Calling response for findAllFinanceDetails
   componentDidMount() {
     FinanceService.findAllFinanceDetails().then((res) => {
       console.log("data: ", res.data);
@@ -24,6 +26,8 @@ class Finance extends Component {
     });
     console.log("finances: ", this.state.finances);
   }
+
+  //Delete finance by id
   deleteFinance = (financeId) => {
     console.log("Delete finance with ID: " + financeId);
     const finances = this.state.finances.filter(
@@ -32,6 +36,7 @@ class Finance extends Component {
     this.setState({ finances });
     FinanceService.deleteFinance(financeId);
   };
+  //Get patientById
   viewFinance = () => {
     let finances = [];
     FinanceService.findByFinanceId(this.state.search).then((res) => {
@@ -52,6 +57,7 @@ class Finance extends Component {
     this.setState({ search: event.target.value });
   };
 
+  //sorting finance by financeId
   render() {
     const { search, sortColumn, finances } = this.state;
     var sorted = [];
